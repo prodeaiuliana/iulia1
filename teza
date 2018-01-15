@@ -1,0 +1,123 @@
+
+#include<iostream.h>
+
+#include<conio.h>
+
+ 
+
+struct Nod
+
+      {int info;
+
+       Nod *next,*back;
+
+       };
+
+ 
+
+Nod *prim, *ultim;
+
+ 
+
+void creare_lista()
+
+{Nod *c;
+
+ c=new Nod;
+
+ cout<<"info ";
+
+ cin>>c->info;
+
+ if(!prim)
+
+   {prim=c;
+
+    prim->next=0;
+
+    prim->back=0;
+
+    ultim=prim;
+
+    }
+
+ else
+
+   {ultim->next=c;
+
+    c->back=ultim;
+
+    ultim=c;
+
+    ultim->next=0;
+
+   }
+
+}
+
+ 
+
+ 
+
+void listare_stanga_dreapta()
+
+{Nod *c;
+
+ c=prim;
+
+ while(c)
+
+    {cout<<c->info<<" ";
+
+     c=c->next;}
+
+}
+
+ 
+
+void listare_dreapta_stanga()
+
+{Nod *c;
+
+ c=ultim;
+
+ while(c)
+
+    {cout<<c->info<<" ";
+
+     c=c->back;}
+
+}
+
+ 
+
+ 
+
+ 
+
+void main()
+
+   {int n,i;
+
+    clrscr();
+
+    cout<<"cate elemente va avea lista?";
+
+    cin>>n;
+
+    for(i=1;i<=n;i++)
+
+      creare_lista();
+
+    cout<<endl<<"Elementele listei de la stanga la dreapta sunt:"<<endl;
+
+    listare_stanga_dreapta();
+
+    cout<<endl<<"Elementele listei de la dreapta la stanga sunt:"<<endl;
+
+    listare_dreapta_stanga();
+
+    getch();
+
+    } 
+    
